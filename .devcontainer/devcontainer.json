@@ -1,4 +1,4 @@
 {
-	"image": "circusci/flutter:stable",
+	"image": "cirrusci/flutter:beta",
 	"name": "Flutter"
 }
