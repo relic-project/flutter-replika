@@ -1,6 +1,4 @@
 {
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image": "circusci/flutter:stable",
 	"name": "Flutter"
 }
