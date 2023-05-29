@@ -16,8 +16,12 @@ void main() {
   // send an event programmatically
   Replika.sendEvent(options, event);
 
-  // wrap your code with init
-  Replika.init(() {
-    // your code here
-  }, options);
+  // wrap your context
+  Replika.wrap(
+    context: () {
+      // your code here
+      throw Exception("Error");
+    },
+    options: options
+  );
 }

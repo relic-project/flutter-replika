@@ -1,6 +1,6 @@
 class ReplikaOptions {
-  final String token;
-  final String projectId;
+  final String? token;
+  final String? projectId;
 
   ReplikaOptions({
     required this.token,

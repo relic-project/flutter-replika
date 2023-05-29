@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:replika/replika.dart';
 import 'package:dio/dio.dart';
+
+typedef Context = FutureOr<void> Function();
 
 class Replika {
   void createEvent(ReplikaOptions options, ReplikaEvent event) {
@@ -24,9 +28,17 @@ class Replika {
     }
   }
 
-  static Future<void> init(dynamic child, ReplikaOptions options) async {    
+  static Future<void> wrap({Context? context, required ReplikaOptions options}) async {   
+    if (options.projectId == null){
+      throw Exception("Project id is required");
+    }
+    if (options.token == null){
+      throw Exception("Token is required");
+    } 
     try {
-      child();
+      if (context != null){
+        await context();
+      }
     } catch (e, stackTrace) {
       sendEvent(
         options, 
