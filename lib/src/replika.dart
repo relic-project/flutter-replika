@@ -40,6 +40,7 @@ class Replika {
         await context();
       }
     } catch (e, stackTrace) {
+      print("sending event");
       sendEvent(
         options, 
         ReplikaEvent(
